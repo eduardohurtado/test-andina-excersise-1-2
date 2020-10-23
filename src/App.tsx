@@ -1,8 +1,9 @@
 import React from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 // Components
 import NavigationBar from "./components/NavigationBar/NavigationBar";
-import HomePage from "./components/HomePage/HomePage";
+import HomePage from "./components/ArraysPage/ArraysPage";
 
 // Font selector
 import "./fonts/fontSelector.scss";
@@ -13,10 +14,18 @@ import "./sass/normalize.scss";
 
 const App: React.FC = () => {
   return (
-    <div className="gridContainer">
-      <NavigationBar />
-      <HomePage />
-    </div>
+    <Router>
+      <div className="gridContainer">
+        <NavigationBar />
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return <HomePage />;
+          }}
+        ></Route>
+      </div>
+    </Router>
   );
 };
 
