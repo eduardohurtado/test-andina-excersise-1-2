@@ -1,0 +1,24 @@
+.checkoutMain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .buttonGo {
+    width: 120px;
+    height: min-content;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .buttonWithdraw {
+    width: 120px;
+    height: min-content;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .totalTrip {
+    font-size: 30px;
+  }
+}

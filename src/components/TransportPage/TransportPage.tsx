@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // Components
 import BusRoute from "./BusRoute/BusRoute";
+import Checkout from "./Checkout/Checkout";
 
 // Image
 import cardImage from "../../img/card.png";
@@ -75,6 +76,7 @@ const SecurityPage: React.FC = () => {
         {date.getMonth() + 3} / {date.getDate()}
       </span>
       <BusRoute />
+      <Checkout />
     </div>
   );
 };
