@@ -1,0 +1,12 @@
+.homePage {
+  grid-column: 1 / span 3;
+  grid-row: 2 / span 3;
+  overflow: auto;
+  padding: 20px;
+
+  .subtitle {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+  }
+}
