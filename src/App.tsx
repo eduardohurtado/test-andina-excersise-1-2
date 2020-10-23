@@ -4,6 +4,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 // Components
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import HomePage from "./components/ArraysPage/ArraysPage";
+import TransportPage from "./components/TransportPage/TransportPage";
 
 // Font selector
 import "./fonts/fontSelector.scss";
@@ -22,6 +23,13 @@ const App: React.FC = () => {
           path="/"
           render={() => {
             return <HomePage />;
+          }}
+        ></Route>
+        <Route
+          exact
+          path="/TransportCard"
+          render={() => {
+            return <TransportPage />;
           }}
         ></Route>
       </div>

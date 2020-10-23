@@ -1,0 +1,60 @@
+.securityPage {
+  grid-column: 1 / span 3;
+  grid-row: 2 / span 3;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  text-align: center;
+
+  .secTitle {
+    font-size: 25px;
+    color: #333;
+    font-weight: bold;
+    margin: 10px;
+  }
+
+  .balanceShow {
+    background-color: maroon;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  .subtitle {
+    text-align: center;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 25px;
+    color: #333;
+  }
+
+  .subtitleNumeric {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px;
+  }
+
+  .subtitleCenter {
+    font-weight: bold;
+    color: #325fa9;
+    font-size: 18px;
+    margin: 10px;
+  }
+
+  .alignRow {
+    display: flex;
+    justify-content: center;
+
+    .buttonCharge {
+      margin: 10px 20px;
+    }
+  }
+
+  .imageCard {
+    margin: 20px auto;
+    width: 50%;
+    height: auto;
+  }
+}

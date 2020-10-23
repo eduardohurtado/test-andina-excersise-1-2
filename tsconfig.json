@@ -13,7 +13,6 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "esModuleInterop": true,
-
     //Testing those configurations below.
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -21,5 +20,7 @@
     "isolatedModules": false,
     "noEmit": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

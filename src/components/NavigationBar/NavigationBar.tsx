@@ -15,8 +15,8 @@ const NavBar: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to="/Metrics" replace>
-              SecurityCard
+            <Link to="/TransportCard" replace>
+              TransportCard
             </Link>
           </li>
           <li>

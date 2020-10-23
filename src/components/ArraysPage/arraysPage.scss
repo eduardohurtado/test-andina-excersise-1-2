@@ -2,20 +2,20 @@
   grid-column: 1 / span 3;
   grid-row: 2 / span 3;
   overflow: auto;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   overflow: auto;
+  text-align: center;
 
   .butttonArray {
-    margin: auto;
+    margin: 10px auto;
   }
 
   .subtitle {
-    display: flex;
     font-weight: bold;
     font-size: 25px;
     color: #333;
+    margin: 10px;
   }
 
   .subtitleCenter {
@@ -24,13 +24,12 @@
     font-size: 20px;
     color: #333;
     margin: 10px;
-    width: 100%;
     text-align: center;
     justify-content: center;
   }
 
   .arrayDiv {
-    margin: auto;
+    margin: 10px auto;
     width: 90%;
     height: auto;
     background-color: maroon;
@@ -39,7 +38,7 @@
   }
 
   .arrayDivSort {
-    margin: auto;
+    margin: 10px auto;
     width: 90%;
     height: auto;
     background-color: maroon;

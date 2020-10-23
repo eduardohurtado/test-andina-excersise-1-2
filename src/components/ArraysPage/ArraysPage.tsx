@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-//Style SCSS
+// Style
 import "./arraysPage.scss";
 
 const HomePage: React.FC = () => {
@@ -35,7 +35,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="homePage">
-      <span className="subtitle">Excersise number 1:</span>
+      <span className="subtitle">Excersise number (1)</span>
       <button className="butttonArray" onClick={newArray}>
         Generate New Array
       </button>
