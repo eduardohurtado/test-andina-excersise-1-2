@@ -4,7 +4,7 @@ Web application developed as a part of an Andina LTDA test, please enjoy.
 
 ## App requirements
 
-You need to have installed [Node Js](https://nodejs.org/en/) on your system to run the local online development server.
+You need to have installed [Node Js](https://nodejs.org/en/) on your system to run the local development server.
 
 ## Install the project
 
