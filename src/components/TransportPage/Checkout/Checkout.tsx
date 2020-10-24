@@ -8,37 +8,70 @@ import { Dispatch } from "redux";
 import "./checkout.scss";
 
 interface IProps {
-  balance: number;
-  tripCost: number;
+  redux: IRedux;
+  payTripRedux: () => void;
+  withdrawMoneyRedux: () => void;
 }
 
-const Checkout: React.FC<IProps> = () => {
+interface IRedux {
+  balance?: number;
+  tripCost?: number;
+}
+
+const Checkout: React.FC<IProps> = (props) => {
+  const payTravel = () => {
+    if (props.redux.tripCost === 0) {
+      alert("Please, select a valid trip.");
+    } else {
+      if (props.redux.tripCost! <= props.redux.balance!) {
+        props.payTripRedux();
+        alert("Trip payed, welcome to your destination!");
+      } else {
+        alert("You can't pay the trip, charge money first.");
+      }
+    }
+  };
+
+  const withdrawMoney = () => {
+    if (props.redux.balance === 0) {
+      alert("You don't have money in your balance.");
+    } else {
+      if (window.confirm("Do you really want to withdraw your money?")) {
+        alert(`You have recieved $${props.redux.balance}.`);
+        props.withdrawMoneyRedux();
+      }
+    }
+  };
+
   return (
     <div className="checkoutMain">
       <div>
-        <button className="buttonGo">Go travel!</button>
-        <button className="buttonWithdraw">Withdrawal</button>
+        <button className="buttonGo" onClick={payTravel}>
+          Go travel!
+        </button>
+        <button className="buttonWithdraw" onClick={withdrawMoney}>
+          Withdrawal
+        </button>
       </div>
       <div className="totalTrip">
         <p>
-          <b>Total after trip: $0</b>
+          <b>{`Current balance: $${props.redux.balance}`}</b>
         </p>
       </div>
     </div>
   );
 };
 
-// export default Checkout;
-const mapStateToProps = (state: IProps) => {
+const mapStateToProps = (state: IRedux) => {
   return {
-    state: state,
+    redux: state,
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    addArticleRedux: (payload: string) =>
-      dispatch({ type: "ADD_ARTICLE", payload }),
+    payTripRedux: () => dispatch({ type: "PAY_TRIP" }),
+    withdrawMoneyRedux: () => dispatch({ type: "WITHDRAW_MONEY" }),
   };
 };
 

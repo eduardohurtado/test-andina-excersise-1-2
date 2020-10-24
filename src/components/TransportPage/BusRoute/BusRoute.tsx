@@ -1,12 +1,30 @@
 import React, { ChangeEvent, useState, useEffect } from "react";
 
+// Global state REDUX
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+
 // Style
 import "./busRoute.scss";
 
-const BusRoute: React.FC = () => {
+interface IProps {
+  redux: IRedux;
+  updateTripCostRedux: (payload: number) => void;
+}
+
+interface IRedux {
+  balance?: number;
+  tripCost?: number;
+}
+
+const BusRoute: React.FC<IProps> = (props) => {
   const [tripCost, updateTripCost] = useState(0);
   const [tripFrom, updateTripFrom] = useState("");
   const [tripTo, updateTripTo] = useState("");
+
+  useEffect(() => {
+    props.updateTripCostRedux(tripCost);
+  }, [tripCost]);
 
   useEffect(() => {
     if (tripFrom === "santaMonica" && tripTo !== "santaMonica") {
@@ -64,7 +82,9 @@ const BusRoute: React.FC = () => {
       </div>
 
       <div className="futureCharge">
-        <span className="chargedText">You will be charged: ${tripCost}</span>
+        <span className="chargedText">
+          You will be charged: ${props.redux.tripCost}
+        </span>
         <div className="discountText">
           <p>There is not discount today</p>
         </div>
@@ -73,4 +93,17 @@ const BusRoute: React.FC = () => {
   );
 };
 
-export default BusRoute;
+const mapStateToProps = (state: IRedux) => {
+  return {
+    redux: state,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    updateTripCostRedux: (payload: number) =>
+      dispatch({ type: "UPDATE_TRIPCOST", payload }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BusRoute);

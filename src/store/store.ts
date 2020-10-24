@@ -5,6 +5,7 @@ interface IAppStateMongo {
 
 interface IAction {
   type: string;
+  payload: number;
 }
 
 const initialStateMongo = {
@@ -16,12 +17,27 @@ const reducer = (
   state = initialStateMongo,
   action: IAction
 ): IAppStateMongo => {
-  if (action.type === "ADD_ARTICLE") {
+  if (action.type === "CHARGE_BALANCE") {
     return {
       ...state,
+      balance: state.balance + action.payload,
+    };
+  } else if (action.type === "UPDATE_TRIPCOST") {
+    return {
+      ...state,
+      tripCost: action.payload,
+    };
+  } else if (action.type === "PAY_TRIP") {
+    return {
+      ...state,
+      balance: state.balance - state.tripCost,
+    };
+  } else if (action.type === "WITHDRAW_MONEY") {
+    return {
+      ...state,
+      balance: 0,
     };
   }
-
   return state;
 };
 

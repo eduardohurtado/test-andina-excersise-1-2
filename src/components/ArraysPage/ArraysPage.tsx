@@ -4,8 +4,8 @@ import React, { useEffect } from "react";
 import "./arraysPage.scss";
 
 const HomePage: React.FC = () => {
-  const vectorNumber: number[] = [];
-  let vectorNumberSort: number[] = [];
+  const vectorNumber: number[] = [0,0];
+  let vectorNumberSort: number[] = [0,0];
 
   const aleatory = () => {
     const myNumber = Math.floor(Math.random() * 100000 + 1);
@@ -24,8 +24,23 @@ const HomePage: React.FC = () => {
       const arraySort = document.querySelector(
         ".arrayContainerSort"
       ) as Element;
-      arrayNoSort.innerHTML = JSON.stringify(vectorNumber, null, 4);
-      arraySort.innerHTML = JSON.stringify(vectorNumberSort, null, 4);
+
+      const arrayOriginal = JSON.stringify(
+        vectorNumber,
+        undefined,
+        4
+      ) as string;
+      const arrayModified = JSON.stringify(
+        vectorNumberSort,
+        undefined,
+        4
+      ) as string;
+      if (arrayOriginal) {
+        arrayNoSort.innerHTML = arrayOriginal;
+      }
+      if (arrayModified) {
+        arraySort.innerHTML = arrayModified;
+      }
     }
   };
 

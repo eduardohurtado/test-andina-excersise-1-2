@@ -4,14 +4,28 @@ import React, { useState, useEffect } from "react";
 import BusRoute from "./BusRoute/BusRoute";
 import Checkout from "./Checkout/Checkout";
 
+// Global state REDUX
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+
 // Image
 import cardImage from "../../img/card.png";
 
 // Style
 import "./transportPage.scss";
 
-const SecurityPage: React.FC = () => {
-  const [balanceCard, updateBalance] = useState(0);
+interface IProps {
+  redux: IRedux;
+  chargeBalanceRedux: (payload: number) => void;
+}
+
+interface IRedux {
+  balance?: number;
+  tripCost?: number;
+}
+
+const SecurityPage: React.FC<IProps> = (props) => {
+  // const [balanceCard, updateBalance] = useState(0);
   const [dateString, updateDateString] = useState(Date());
   const [date, updateDate] = useState(new Date());
 
@@ -20,7 +34,7 @@ const SecurityPage: React.FC = () => {
   }, []);
 
   const addBalance = (e: number) => {
-    updateBalance(balanceCard + e);
+    props.chargeBalanceRedux(e);
   };
 
   const setCurrentDate = () => {
@@ -52,7 +66,7 @@ const SecurityPage: React.FC = () => {
       <img src={cardImage} alt="CardImage" className="imageCard"></img>
 
       <div className="balanceShow">
-        <span>BALANCE: ${balanceCard}</span>
+        <span>BALANCE: ${props.redux.balance}</span>
         <br />
         <span>DATE: {dateString}</span>
       </div>
@@ -81,4 +95,17 @@ const SecurityPage: React.FC = () => {
   );
 };
 
-export default SecurityPage;
+const mapStateToProps = (state: IRedux) => {
+  return {
+    redux: state,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    chargeBalanceRedux: (payload: number) =>
+      dispatch({ type: "CHARGE_BALANCE", payload }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SecurityPage);

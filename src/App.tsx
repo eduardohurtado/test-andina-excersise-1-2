@@ -5,6 +5,8 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import HomePage from "./components/ArraysPage/ArraysPage";
 import TransportPage from "./components/TransportPage/TransportPage";
+import AboutPage from "./components/AboutPage/AboutPage";
+import ContactPage from './components/ContactPage/ContactPage'
 
 // Font selector
 import "./fonts/fontSelector.scss";
@@ -30,6 +32,20 @@ const App: React.FC = () => {
           path="/TransportCard"
           render={() => {
             return <TransportPage />;
+          }}
+        ></Route>
+        <Route
+          exact
+          path="/About"
+          render={() => {
+            return <AboutPage />;
+          }}
+        ></Route>
+        <Route
+          exact
+          path="/Contact"
+          render={() => {
+            return <ContactPage />;
           }}
         ></Route>
       </div>

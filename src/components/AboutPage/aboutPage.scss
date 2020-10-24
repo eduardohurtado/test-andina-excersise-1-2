@@ -1,0 +1,28 @@
+.aboutPageMain {
+  grid-column: 1 / span 3;
+  grid-row: 2 / span 3;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  text-align: center;
+  width: 100%;
+
+  .titleAndina {
+    margin-top: 100px 20px 0 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .centerImageA {
+    margin: 20px auto;
+    width: 100%;
+
+    .logoAndina {
+      width: 80%;
+      height: auto;
+      border-radius: 20px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.contactPage {
+  grid-column: 1 / span 3;
+  grid-row: 2 / 5;
+  text-align: center;
+  overflow: auto;
+  padding: 5px;
+
+  p {
+    font-size: 25px;
+    color: black;
+  }
+  img {
+    margin-top: 20px;
+  }
+}
+
+.contactTitle {
+  font-size: 60px;
+  color: #2964aa;
+  cursor: default;
+}
